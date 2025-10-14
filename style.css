@@ -9,15 +9,17 @@
 }
 
 a {
-  color: white;
+  color: black;
 }
 
 a:visited {
-  color: white;
+  color: black;
 }
 
 a:hover {
-  color: #6F86FF;
+  color: crimson;
+  text-shadow: black;
+  transition: ease .3s;
 }
 
 
@@ -43,14 +45,14 @@ h1 {
 }
 
 .logo img {
-  position: center;
-  left: 200px;
+  position: relative;
+  left: 555px;
 }
 
 /* OFF SCREEN MENU */
 
 .off-menu {
-  background-color: rgb(34, 37, 49);
+  background-color: white;
   height: 100vh;
   width: 100%;
   max-width: 450px;
@@ -62,12 +64,14 @@ h1 {
   align-items: center;
   justify-content: center;
   text-align: center;
+  text-decoration: outline black;
   font-size: 3rem;
   transition: .3s;
 }
 
 .off-menu.active {
   right: 0;
+  color: black;
 }
 
 /* nav */
@@ -76,7 +80,10 @@ h1 {
   height: 50px;
   width: 40px;
   margin-left: auto;
+  margin-top: auto;
   position: relative;
+  
+  
 }
 
 .hamburger-menu span {
@@ -106,6 +113,7 @@ h1 {
 .hamburger-menu.active span:nth-child(1) {
   top: 50%;
   transform: translate(-50%, -50%) rotate(45deg);
+  background-color: black;
 }
 
 .hamburger-menu.active span:nth-child(2) {
@@ -115,6 +123,7 @@ h1 {
 .hamburger-menu.active span:nth-child(3) {
   top: 50%;
   transform: translate(-50%, -50%) rotate(-45deg);
+  background-color:black;
 }
 
 /* Video Placement */
@@ -130,6 +139,240 @@ h1 {
 /* Footer */
 
 footer {
+  
   text-align: center;
   margin-top: 250px;
+}
+
+
+/* SUPPORT FORM */
+
+
+
+.container-support {
+  background-color: rgb(90, 90, 90);
+  padding: 30px;
+  border-radius: 5px;
+  width: 75%;
+  max-width: 400px;
+  position: center;
+  text-align: center;
+  justify-content: center;
+  margin-left: 35%;
+  margin-top: 150px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  color: white;
+  font-size: 25px;
+  font-weight: bold;
+  border-radius: 15px;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  width: calc(100% - 20px);
+  padding: 10px;
+  border: 1px solid;
+  border-radius:8px;
+  box-sizing: border-box;
+  font-size: 16px;
+  box-shadow: 4px 8px 10px rgba(0, 0, 0, 0.2);
+  font-family: 'Courier New', Courier, monospace;
+}
+
+textarea {
+  resize: vertical;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+button[type="submit"] {
+  background-color: crimson;
+  color: black;
+  font-family: "Jolly Lodger", system-ui;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  font-size: 25px;
+  width: 100%;
+  position: center;
+  transition: background-color white ease .3s;
+  box-shadow: 4px 8px 10px rgba(0, 0, 0, 0.2);
+}
+
+button[type="submit"]:hover {
+  background-color: black;
+  color: crimson;
+  transition: ease-in-out .5s;
+}
+
+
+/* LOGIN */
+
+.container-login {
+  background-color: rgb(90, 90, 90);
+  padding: 30px;
+  border-radius: 5px;
+  width: 75%;
+  max-width: 400px;
+  position: center;
+  text-align: center;
+  justify-content: center;
+  margin-left: 35%;
+  margin-top: 150px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  color: white;
+  font-size: 25px;
+  font-weight: bold;
+  border-radius: 15px;
+  margin-bottom: 10px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"]
+  {
+  width: calc(100% - 20px);
+  padding: 10px;
+  border: 1px solid;
+  border-radius:8px;
+  box-sizing: border-box;
+  font-size: 16px;
+  box-shadow: 4px 8px 10px rgba(0, 0, 0, 0.2);
+  font-family: 'Courier New', Courier, monospace;
+}
+
+button[type="submit"] {
+  background-color: crimson;
+  color: black;
+  font-family: "Jolly Lodger", system-ui;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  font-size: 25px;
+  width: 65%;
+  position: center;
+  transition: background-color white ease .3s;
+  box-shadow: 4px 8px 10px rgba(0, 0, 0, 0.2);
+  margin-bottom: 10px;
+}
+
+button[type="signup"] {
+  background-color: crimson;
+  color: black;
+  font-family: "Jolly Lodger", system-ui;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  font-size: 25px;
+  width: 50%;
+  position: center;
+  transition: background-color white ease .3s;
+  box-shadow: 4px 8px 10px rgba(0, 0, 0, 0.2);
+  margin-top: 5px;
+}
+
+button[type="submit"]:hover {
+  background-color: black;
+  color: crimson;
+  transition: ease-in-out .5s;
+}
+
+button[type="signup"]:hover {
+  background-color: black;
+  color: crimson;
+  transition: ease-in-out .5s;
+}
+
+
+
+
+/* SIGN UP */
+
+
+.container-signup {
+  background-color: rgb(90, 90, 90);
+  padding: 30px;
+  border-radius: 5px;
+  width: 75%;
+  max-width: 400px;
+  position: center;
+  text-align: center;
+  justify-content: center;
+  margin-left: 35%;
+  margin-top: 150px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  color: white;
+  font-size: 25px;
+  font-weight: bold;
+  border-radius: 15px;
+  margin-bottom: 10px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"]
+  {
+  width: calc(100% - 20px);
+  padding: 10px;
+  border: 1px solid;
+  border-radius:8px;
+  box-sizing: border-box;
+  font-size: 16px;
+  box-shadow: 4px 8px 10px rgba(0, 0, 0, 0.2);
+  font-family: 'Courier New', Courier, monospace;
+}
+
+button[type="submit"] {
+  background-color: crimson;
+  color: black;
+  font-family: "Jolly Lodger", system-ui;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  font-size: 25px;
+  width: 65%;
+  position: center;
+  transition: background-color white ease .3s;
+  box-shadow: 4px 8px 10px rgba(0, 0, 0, 0.2);
+  margin-bottom: 10px;
+}
+
+button[type="submit"]:hover {
+  background-color: black;
+  color: crimson;
+  transition: ease-in-out .5s;
+}
+
+button[type="signup"]:hover {
+  background-color: black;
+  color: crimson;
+  transition: ease-in-out .5s;
 }

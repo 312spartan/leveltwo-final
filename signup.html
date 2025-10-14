@@ -44,11 +44,17 @@
                 
             </header>
 
-   <div class="container-login">
+   <div class="container-signup">
     <form action="script.js" method="POST">
         <div class="form-group">
             <label for="name">Email:</label>
             <input type="email" id="name" name="user_name" required placeholder="Enter Email...">
+        </div>
+
+        
+        <div class="form-group">
+            <label for="Password">Create a Username:</label>
+            <input type="text" id="password" name="password" required placeholder="Create Username...">
         </div>
 
         <div class="form-group">
@@ -56,9 +62,12 @@
             <input type="text" id="password" name="password" required placeholder="Enter Password...">
         </div>
 
-        <button type="submit">Login</button>
+        <div class="form-group">
+            <label for="Password">Enter Password Again:</label>
+            <input type="text" id="password" name="password" required placeholder="Retype Password...">
+        </div>
 
-        <button type="signup"> <a href="/signup.html">Sign Up!</a></button>
+        <button type="submit">Sign up!</button>
     </form>
    </div>
 
