@@ -43,10 +43,23 @@ h1 {
   font-weight: 400;
   font-style: normal;
 }
-
+nav:hover {
+  color: crimson;
+  transition: .4s;
+}
 .logo img {
   position: relative;
   left: 555px;
+}
+
+.nav-img-top {
+  position: relative;
+  top: -25%;
+}
+
+.nav-img-bottom {
+  position: relative;
+  bottom: -25%;
 }
 
 /* OFF SCREEN MENU */
@@ -55,7 +68,7 @@ h1 {
   background-color: white;
   height: 100vh;
   width: 100%;
-  max-width: 450px;
+  max-width: 360px;
   position: fixed;
   top: 0;
   right: -450px;
@@ -67,11 +80,12 @@ h1 {
   text-decoration: outline black;
   font-size: 3rem;
   transition: .3s;
+  z-index: 1000;
 }
 
 .off-menu.active {
   right: 0;
-  color: black;
+  color: white;
 }
 
 /* nav */
@@ -80,10 +94,15 @@ h1 {
   height: 50px;
   width: 40px;
   margin-left: auto;
-  margin-top: auto;
+  margin-bottom: px;
   position: relative;
   
   
+}
+
+.hamburger-menu:hover {
+  color: crimson;
+  transition: .4s;
 }
 
 .hamburger-menu span {
@@ -96,6 +115,7 @@ h1 {
   top: 50%;
   transform: translate(-50%, -50%);
   transition: .3s ease;
+  cursor: pointer;
 }
 
 .hamburger-menu span:nth-child(1){
@@ -108,12 +128,15 @@ h1 {
 
 .hamburger-menu.active span {
   background-color: white;
+  cursor: pointer;
 }
 
 .hamburger-menu.active span:nth-child(1) {
   top: 50%;
   transform: translate(-50%, -50%) rotate(45deg);
   background-color: black;
+  z-index: 1000;
+  cursor: pointer;
 }
 
 .hamburger-menu.active span:nth-child(2) {
@@ -124,6 +147,8 @@ h1 {
   top: 50%;
   transform: translate(-50%, -50%) rotate(-45deg);
   background-color:black;
+  z-index: 1000;
+  cursor: pointer;
 }
 
 /* Video Placement */
@@ -141,7 +166,7 @@ h1 {
 footer {
   
   text-align: center;
-  margin-top: 250px;
+  margin-top: 200px;
 }
 
 
@@ -375,4 +400,194 @@ button[type="signup"]:hover {
   background-color: black;
   color: crimson;
   transition: ease-in-out .5s;
+}
+
+
+
+/* SHOP */
+
+.available-items {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(220px, auto));
+  gap: 1.5rem;
+  border: 1px solid black;
+  text-align: center;
+  margin-top: 50px;
+}
+
+.item {
+  position: relative;
+}
+
+.item:hover {
+  padding: 8px;
+  color: crimson;
+  border: 3px solid rgba(rgb(220, 20, 60));
+  transition: 0.4s;
+  cursor: pointer;
+}
+
+.item-image {
+  width: 90%;
+  height: auto;
+  margin-bottom: 0.5rem;
+}
+
+.price {
+  font-size: 21px;
+}
+
+.add-cart {
+  position: absolute;
+  cursor: pointer;
+}
+
+.add-cart:hover {
+  color: crimson;
+  transition: 0.4s;
+}
+
+
+
+
+
+
+/* CART */
+
+#cart-icon {
+  font-size: 50px;
+  position: absolute;
+  right: 50px;
+}
+
+#cart-icon:hover {
+  color: crimson;
+  transition: .4s;
+  cursor: pointer;
+}
+
+.cart {
+position: fixed;
+top: 0;
+right: -100%;
+width: 360px;
+min-height: 100vh;
+padding: 20px;
+background: white;
+color: black;
+text-align: center;
+box-shadow: 2px, 2px, 2px rgba(gray);
+z-index: 100;
+transition: 0.3s;
+}
+
+.cart.active {
+  right: 0;
+}
+
+.cart-heading{
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  color: black;
+}
+
+.cart-price {
+  color: black;
+  z-index: 100;
+}
+
+.cart-price:hover{
+  color: crimson;
+  transition: 0.4s;
+}
+
+.quantity {
+  border: 1px solid black;
+  border-radius: 10px;
+  width: 2.4rem;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.item-remove{
+  font-size: 24px;
+}
+
+.item-remove:hover {
+  cursor: pointer;
+}
+
+.total {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1.5rem;
+  border-top: 1px solid black;
+  font-size: 1.5rem;
+}
+
+.buy-btn {
+  display: flex;
+  margin: 1.5rem auto 0 auto;
+  padding: 8px;
+  border: 0.5px solid crimson;
+  font-family: "Jolly Lodger", system-ui;
+  background: crimson;
+  color: white;
+  border-radius: 10px;
+  font-size: 22px;
+  width: 266px;
+  text-align: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.buy-btn:hover {
+  border: 0.5px solid black;
+  color: crimson;
+  background-color: black;
+  transition: 0.4s;
+}
+
+.cart-box {
+  display: grid;
+  grid-template-columns: 32% 50% 18%;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.cart-img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  padding: 10px;
+}
+
+.detail-box{
+  display: grid;
+  row-gap: 0.5rem;
+}
+
+.cart-item-name {
+  font-size: 1rem;
+}
+
+.total-price {
+  font-weight: 500;
+}
+
+.cart-box:hover{
+  color: crimson;
+  border: 3px solid rgba(rgb(220, 20, 60));
+  transition: 0.4s;
+}
+
+#close-cart {
+  position: absolute;
+  top: 1rem;
+  right: 0.8rem;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: black;
 }
