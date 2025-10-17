@@ -35,7 +35,11 @@ if (document.readyState === 'loading') {
 
 // Making Function
 
-function removeCartItem(event){
+function removeCartItem(event, i){
+    // console.log(i);
+    // const cartBoxes = document.getElementsByClassName("cart-box");
+    // console.log(cartBoxes);
+    // cartBoxes.splice(i - 1, 1);
     var buttonClicked = event.target;
     buttonClicked.parentElement.remove();
     updateTotal();
@@ -112,7 +116,9 @@ function ready() {
     var removeCartButtons = document.getElementsByClassName('item-remove');
     for (var i = 0; i < removeCartButtons.length; i++) {
         var button = removeCartButtons[i];
-        button.addEventListener("click", removeCartItem);
+        button.addEventListener("click", function(e) {
+            removeCartItem(e, i );
+        });
     }
 
     // Quantity input changes
@@ -147,9 +153,19 @@ function ready() {
 function updateTotal() {
     var cartBoxes = document.getElementsByClassName("cart-box");
     var total = 0;
+    const tPrice =  document.getElementsByClassName("total-price");
+     var removeCartButtons = document.getElementsByClassName('item-remove');
+    console.log(removeCartButtons);
+    
+    if (!removeCartButtons.length) {
+        tPrice[0].innerHTML = 0;
+        return;
+    }
+    
 
     for (var i = 0; i < cartBoxes.length; i++) {
         var cartBox = cartBoxes[i];
+
         var priceElement = cartBox.getElementsByClassName("cart-price")[0];
         var quantityElement = cartBox.getElementsByClassName("quantity")[0];
 
@@ -162,6 +178,11 @@ function updateTotal() {
     }
 
     // Round to 2 decimal places
+
     total = Math.round(total * 100) / 100;
-    document.getElementsByClassName("total-price")[0].innerText = total.toFixed(2);
+    tPrice[0].innerHTML = total.toFixed(2);
+
+    
+    console.log(tPrice);
+    
 }
