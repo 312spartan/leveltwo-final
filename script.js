@@ -315,19 +315,30 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-// SIGN UP FORM FUNCTIONALITY
+// // SIGN UP FORM FUNCTIONALITY
 
 document.addEventListener("DOMContentLoaded", function () {
-    const form = document.querySelector(".conatiner-signup form");
+    const form = document.querySelector(".container-signup form");
+
+    if (!form) {
+        console.error("Sign-up form not found!");
+        return;
+    }
+
     const inputs = form.querySelectorAll("input");
+
+    if (inputs.length < 4) {
+        console.error("Not enough inputs in form.");
+        return;
+    }
 
     const emailInput = inputs[0];
     const usernameInput = inputs[1];
     const passwordInput = inputs[2];
     const confirmPasswordInput = inputs[3];
 
-    form.addEventListener("submit", function (event) {
-        event.preventDefault();
+    form.addEventListener("submit", function (e) {
+        e.preventDefault();
 
         const email = emailInput.value.trim();
         const username = usernameInput.value.trim();
@@ -335,36 +346,40 @@ document.addEventListener("DOMContentLoaded", function () {
         const confirmPassword = confirmPasswordInput.value.trim();
 
         if (!validateEmail(email)) {
-            alert("Invalid email.");
+            alert("Invalid email address.");
             return;
         }
 
-        if(username.length < 3) {
+        if (username.length < 3) {
             alert("Username must be at least 3 characters.");
             return;
         }
 
         if (password.length < 6) {
-            alert("Password must be 6 characters.");
+            alert("Password must be at least 6 characters.");
             return;
         }
 
         if (password !== confirmPassword) {
-            alert("Passwords don't match.");
+            alert("Passwords do not match.");
+            return;
+        }
+
+        if (password === username) {
+            alert("Password cannot be the same as username.")
             return;
         }
 
         const user = {
             email,
             username,
-            password //Future reference, this is not secure coding and does not follow PCI DSS compliance
+            password,
         };
 
         localStorage.setItem("blackStarUser", JSON.stringify(user));
 
-        alert("Sign-up Successful! Welcome!");
-        console.log("New user registered:", user);
-
+        alert("✅ Signup successful!");
+        console.log("User saved:", user);
     });
 
     function validateEmail(email) {
