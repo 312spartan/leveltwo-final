@@ -274,3 +274,101 @@ function loadCartFromLocalStorage() {
 
     updateTotal();
 }
+
+
+
+// LOGIN AND SIGNUP PAGE FUNCTIONALITY
+
+document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("login-form");
+    const emailInput = document.getElementById("email");
+    const passwordInput = document.getElementById("password");
+
+    form.addEventListener("submit", function (event) {
+        event.preventDefault(); // Prevent form from submitting normally
+
+        const email = emailInput.value.trim();
+        const password = passwordInput.value.trim();
+
+        if (!validateEmail(email)) {
+            alert("Invalid email.");
+            return;
+        }
+
+        if (password.length < 6) {
+            alert("Password must be at least 6 characters.");
+            return;
+        }
+
+        //Simulated Login Success
+
+        alert("Login successful");
+        console.log("Email:", email);
+        console.log("Password:", password);
+    });
+
+    function validateEmail(email) {
+        // Basic email regex
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(email);
+    }
+});
+
+
+// SIGN UP FORM FUNCTIONALITY
+
+document.addEventListener("DOMContentLoaded", function () {
+    const form = document.querySelector(".conatiner-signup form");
+    const inputs = form.querySelectorAll("input");
+
+    const emailInput = inputs[0];
+    const usernameInput = inputs[1];
+    const passwordInput = inputs[2];
+    const confirmPasswordInput = inputs[3];
+
+    form.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const email = emailInput.value.trim();
+        const username = usernameInput.value.trim();
+        const password = passwordInput.value.trim();
+        const confirmPassword = confirmPasswordInput.value.trim();
+
+        if (!validateEmail(email)) {
+            alert("Invalid email.");
+            return;
+        }
+
+        if(username.length < 3) {
+            alert("Username must be at least 3 characters.");
+            return;
+        }
+
+        if (password.length < 6) {
+            alert("Password must be 6 characters.");
+            return;
+        }
+
+        if (password !== confirmPassword) {
+            alert("Passwords don't match.");
+            return;
+        }
+
+        const user = {
+            email,
+            username,
+            password //Future reference, this is not secure coding and does not follow PCI DSS compliance
+        };
+
+        localStorage.setItem("blackStarUser", JSON.stringify(user));
+
+        alert("Sign-up Successful! Welcome!");
+        console.log("New user registered:", user);
+
+    });
+
+    function validateEmail(email) {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(email);
+    }
+});

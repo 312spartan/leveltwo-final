@@ -85,22 +85,23 @@
             </header>
 
    <div class="container-login">
-    <form action="script.js" method="POST">
+    <form id="login-form">
         <div class="form-group">
             <label for="name">Email:</label>
-            <input type="email" id="name" name="user_name" required placeholder="Enter Email...">
+            <input type="email" id="email" name="email" required placeholder="Enter Email...">
         </div>
 
         <div class="form-group">
-            <label for="Password">Password:</label>
-            <input type="text" id="password" name="password" required placeholder="Enter Password...">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required placeholder="Enter Password...">
         </div>
 
         <button type="submit">Login</button>
 
-        <button type="signup"> <a href="/signup.html">Sign Up!</a></button>
+        <!-- Not an actual submit button, so no need for type="signup" -->
+        <a href="/signup.html"><button type="button">Sign Up!</button></a>
     </form>
-   </div>
+</div>
 
  
 

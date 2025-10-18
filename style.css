@@ -299,7 +299,7 @@ button[type="submit"] {
   margin-bottom: 10px;
 }
 
-button[type="signup"] {
+button[type="button"] {
   background-color: crimson;
   color: black;
   font-family: "Jolly Lodger", system-ui;
