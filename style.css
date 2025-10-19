@@ -49,17 +49,19 @@ nav:hover {
 }
 .logo img {
   position: relative;
-  left: 555px;
+  left: 886.5px;
+  justify-content: center;
 }
 
 .nav-img-top {
   position: relative;
-  top: -25%;
+  top: -10%;
+ 
 }
 
 .nav-img-bottom {
   position: relative;
-  bottom: -25%;
+  bottom: -10%;
 }
 
 /* OFF SCREEN MENU */
@@ -183,7 +185,7 @@ footer {
   position: center;
   text-align: center;
   justify-content: center;
-  margin-left: 35%;
+  margin-left: 40%;
   margin-top: 150px;
 }
 
@@ -251,7 +253,7 @@ button[type="submit"]:hover {
   position: center;
   text-align: center;
   justify-content: center;
-  margin-left: 35%;
+  margin-left: 40%;
   margin-top: 150px;
 }
 
@@ -342,7 +344,7 @@ button[type="signup"]:hover {
   position: center;
   text-align: center;
   justify-content: center;
-  margin-left: 35%;
+  margin-left: 40%;
   margin-top: 150px;
 }
 
@@ -590,4 +592,109 @@ transition: 0.3s;
   cursor: pointer;
   font-size: 1.5rem;
   color: black;
+}
+
+
+
+
+/* CHECKOUT */
+
+.container-checkout {
+  background-color: rgb(90, 90, 90);
+  padding: 30px;
+  border-radius: 5px;
+  width: 75%;
+  max-width: 400px;
+  position: center;
+  text-align: center;
+  justify-content: center;
+  margin-left: 40%;
+  margin-top: 150px;
+}
+
+.form-checkout {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  color: white;
+  font-size: 25px;
+  font-weight: bold;
+  border-radius: 15px;
+}
+
+#card-element {
+  display: block;
+  margin-bottom: 5px;
+  color: white;
+  font-size: 25px;
+  font-weight: bold;
+  border-radius: 15px;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  width: calc(100% - 20px);
+  padding: 10px;
+  border: 1px solid;
+  border-radius:8px;
+  box-sizing: border-box;
+  font-size: 16px;
+  box-shadow: 4px 8px 10px rgba(0, 0, 0, 0.2);
+  font-family: 'Courier New', Courier, monospace;
+}
+
+textarea {
+  resize: vertical;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+button[type="submit"] {
+  background-color: crimson;
+  color: black;
+  font-family: "Jolly Lodger", system-ui;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  font-size: 25px;
+  width: 100%;
+  position: center;
+  transition: background-color white ease .3s;
+  box-shadow: 4px 8px 10px rgba(0, 0, 0, 0.2);
+}
+
+button[type="submit"]:hover {
+  background-color: black;
+  color: crimson;
+  transition: ease-in-out .5s;
+}
+
+
+
+.to-shop {
+  background-color: crimson;
+  color: black;
+  font-family: "Jolly Lodger", system-ui;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  font-size: 25px;
+  width: 25%;
+  max-width: 400px;
+  position: center;
+  transition: background-color white ease .3s;
+  box-shadow: 4px 8px 10px rgba(0, 0, 0, 0.2);
+}
+
+.to-shop:hover {
+
+  background-color: black;
+  color: crimson;
+  transition: ease-in-out .5s;
+
 }

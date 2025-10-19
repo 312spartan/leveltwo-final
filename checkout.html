@@ -85,12 +85,49 @@
                 
             </header>
 
-    <main id="app" role="main">
         
 
         <section id="section">
+
+            <div class="container-checkout">
+    <form action="script.js" method="POST">
+        
+        <div class="form-checkout">
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="user_name" required placeholder="ex. Tim Robinson">
+        </div>
+
+        <div class="form-checkout">
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="user_email" required placeholder="someone@somemail.com">
+        </div>
+
+        <div class="form-checkout">
+            <label for="email">Confirm Email:</label>
+            <input type="text" id="email" name="user_email" required placeholder="ex. someone@somemail.com">
+        </div>
+
+        <div class="form-checkout">
+            <label for="subject">Address: </label>
+            <input type="text" id="address" name="subject" required placeholder="ex. 123 Boring Street">
+        </div>
+
+        <div class="form-checkout">
+            <label for="subject">City, State, Zip: </label>
+            <input type="text" id="address" name="subject" required placeholder="ex. 12345, Boringtown IN, USA">
+        </div>
+
+        <div class="form-checkout">
+    <label for="card-element">Card Details:</label>
+    <div id="card-element"><!-- Stripe injects the Card field here --></div>
+    <div id="card-errors" role="alert" style="color:red; margin-top:10px;"></div>
+</div>
+        
+
+        <button type="submit">Checkout</button>
+    </form>
+   </div>
             
-        </section>
 
         <!--This is where the product cards are going to go with the information on the back of them, price is listed below the product, with a button to add it to the shopping cart.-->
 
@@ -110,6 +147,8 @@
         </div>
     </footer>
  <script src="script.js"></script>
+ 
+ <script src="https://js.stripe.com/v3/"></script>
  </div>
 </body>
 </html>

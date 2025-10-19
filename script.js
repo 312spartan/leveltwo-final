@@ -387,3 +387,174 @@ document.addEventListener("DOMContentLoaded", function () {
         return re.test(email);
     }
 });
+
+
+//CHECKOUT PAGE FUNCTIONALITY
+
+// JUST KIDDING DOING A WEATHER API BUILT IN TO THE SITE INSTEAD SINCE THE STRIPE API REQUIRES SETTING UP A SERVER ON NODE
+
+// JUST KIDDING AGAIN, I AM NOT A QUITTER, AND I DO NOT ACCEPT DEFEAT
+
+// EVER
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const checkoutForm = document.querySelector(".container-checkout form");
+
+    if (checkoutForm) {
+        checkoutForm.addEventListener("submit", function (e) {
+            e.preventDefault(); // Prevent the default form reload
+
+            // Get form data
+            const formData = {
+                name: document.getElementById("name")?.value,
+                email: document.querySelectorAll("#email")[0]?.value,
+                emailConfirm: document.querySelectorAll("#email")[1]?.value,
+                address: document.getElementById("address")?.value,
+                cardNumber: document.querySelectorAll("cardNumber")?.value,
+                cvc: document.querySelectorAll("cvc")?.value,
+                expiration: document.querySelectorAll("expiration")?.value,
+            };
+
+            // Basic validation
+            if (formData.email !== formData.emailConfirm) {
+                alert("Emails do not match.");
+                return;
+            }
+
+            console.log("Submitting checkout form:", formData);
+
+            // Send to backend (we'll set up /checkout route on the server)
+            fetch("/checkout", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(formData),
+            })
+                .then((res) => {
+                    if (!res.ok) {
+                        throw new Error("Server error during checkout");
+                    }
+                    return res.json();
+                })
+                .then((data) => {
+                    console.log("Checkout success:", data);
+
+                    // Optional: redirect to success page
+                    if (data.redirectUrl) {
+                        window.location.href = data.redirectUrl;
+                    } else {
+                        alert("Checkout complete!");
+                    }
+                })
+                .catch((err) => {
+                    console.error("Checkout failed:", err);
+                    alert("There was an issue with your checkout.");
+                });
+        });
+    }
+});
+
+
+//Secure Credit Card PCI Compliant
+
+document.addEventListener('DOMContentLoaded', async () => {
+    if (window.location.pathname.includes("checkout.html")) {
+        const stripe = Stripe("pk_test_51SJzgHBqT0SCKdMIsBy9z79q90yntQMOHEAer9MkZdWceRqfcziQMYv8nhQq4fccY7Bq0ddOMpUg1tBv55jUlTde00JjJpJyLw");
+        const elements = stripe.elements();
+
+        const card = elements.create("card", {
+      style: {
+        base: {
+          fontSize: "16px",
+          color: "#FFF",
+          "::placeholder": {
+            color: "#a0aec0"
+          }
+        }
+      }
+    });
+
+        card.mount("#card-element");
+
+        card.on("change", function (event) {
+            const errorDiv = document.getElementById("card-errors");
+            if (event.error) {
+                errorDiv.textContent = event.error.message;
+            } else {
+                errorDiv.textContent = "";
+            }
+        });
+
+        // Handle form submission
+        const form = document.querySelector("form");
+        form.addEventListener("submit", async (event) => {
+            event.preventDefault();
+
+            // Get total from cart (or set a static amount for now)
+            let amount = 5000; // = $50.00 in cents
+
+            const response = await fetch("/create-payment-intent", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ amount })
+            });
+
+            const { clientSecret } = await response.json();
+
+            const result = await stripe.confirmCardPayment(clientSecret, {
+                payment_method: {
+                    card,
+                    billing_details: {
+                        name: document.getElementById("name").value,
+                        email: document.getElementById("email").value
+                    }
+                }
+            });
+
+            if (result.error) {
+                document.getElementById("card-errors").textContent = result.error.message;
+            } else {
+                if (result.paymentIntent.status === "succeeded") {
+                    alert("✅ Payment successful!");
+                    localStorage.removeItem("blackStarCart");
+                    window.location.href = "/success.html"; 
+                }
+            }
+        });
+    }
+});
+
+
+
+// SUPPORT PAGE FUNCTIONALITY
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    if (window.location.pathname.includes("support.html")) {
+        const supportForm = document.querySelector("form");
+
+        supportForm.addEventListener("submit", function (e) {
+            e.preventDefault();
+        
+
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const subject = document.getElementById("subject").value.trim();
+        const message = document.getElementById("user_message").value.trim();
+
+        if ( !name || !email || !subject || !message) {
+            alert("Please fill out all of the required fields before submitting.");
+            return;
+        }
+
+        // Simulate successful submission
+
+        alert("Message received. We'll be in touch soon.");
+
+        supportForm.reset();
+        });
+    }
+});
