@@ -182,7 +182,8 @@ footer {
   border-radius: 5px;
   width: 75%;
   max-width: 400px;
-  position: center;
+  position: flex;
+  align-items: center;
   text-align: center;
   justify-content: center;
   margin-left: 40%;
@@ -253,7 +254,7 @@ button[type="submit"]:hover {
   position: center;
   text-align: center;
   justify-content: center;
-  margin-left: 40%;
+  margin-left: 0 auto;
   margin-top: 150px;
 }
 
@@ -344,7 +345,7 @@ button[type="signup"]:hover {
   position: center;
   text-align: center;
   justify-content: center;
-  margin-left: 40%;
+  margin-left: 0 auto;
   margin-top: 150px;
 }
 
@@ -608,7 +609,7 @@ transition: 0.3s;
   position: center;
   text-align: center;
   justify-content: center;
-  margin-left: 40%;
+  margin-left: 0 auto;
   margin-top: 150px;
 }
 
@@ -697,4 +698,13 @@ button[type="submit"]:hover {
   color: crimson;
   transition: ease-in-out .5s;
 
+}
+
+
+/* Mobile */
+
+@media (max-width: 768px) {
+  .available-items {
+    grid-template-columns: repeat(2, minmax(150px, auto));
+  }
 }
