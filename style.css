@@ -254,7 +254,7 @@ button[type="submit"]:hover {
   position: center;
   text-align: center;
   justify-content: center;
-  margin-left: 0 auto;
+  margin-left: 40%;
   margin-top: 150px;
 }
 
@@ -345,7 +345,7 @@ button[type="signup"]:hover {
   position: center;
   text-align: center;
   justify-content: center;
-  margin-left: 0 auto;
+  margin-left: 40%;
   margin-top: 150px;
 }
 
@@ -609,7 +609,7 @@ transition: 0.3s;
   position: center;
   text-align: center;
   justify-content: center;
-  margin-left: 0 auto;
+  margin-left: 40%;
   margin-top: 150px;
 }
 
